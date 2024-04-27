@@ -1,37 +1,27 @@
-function carregar()
-
+function contar()
 {
-    var msg = window.document.getElementById('msg')
-    var img = window.document.getElementById('imagem')
+    var inicio = document.getElementById('in')
+    var fim = document.getElementById('fi')
+    var passo = document.getElementById('pa')
+    var resultado = document.getElementById('res')
 
-    var data = new Date()
-    var hora = data.getHours()
-   
-    //var hora = 12
-
-    msg.innerHTML = `Agora são ${hora} horas.`
-
-    if (hora >= 0 && hora < 12)
+    if (fim.value.length == 0 || fim.value.length == 0 || passo.value.length == 0)
     {
-        msg.innerHTML = `Agora são ${hora} horas. Tenha um bom dia`
-        img.src = 'imagens/1.jpg'
-        document.body.style.background = '#e2cd9f'
+        window.alert('Faltam dados')
     }
 
     else
     {
-        if (hora >= 12 && hora < 18)
+        res.innerHTML = 'Contando: '
+
+        var i = Number(inicio.value)
+        var f = Number(fim.value)
+        var p = Number(passo.value)
+
+        for(var c = i; c <= f; c += p )
         {
-            msg.innerHTML = `Agora são ${hora} horas. Tenha uma boa tarde`
-            img.src = 'imagens/2.jpg'
-            document.body.style.background = '#b9846f'
+            res.innerHTML += `${c}`
         }
 
-        else
-        {
-            msg.innerHTML = `Agora são ${hora} horas. Boa noite`
-            img.src = 'imagens/3.jpg'
-            document.body.style.background = '#515154'
-        }
     }
 }
