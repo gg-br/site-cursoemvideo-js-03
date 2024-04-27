@@ -12,16 +12,32 @@ function contar()
 
     else
     {
-        res.innerHTML = 'Contando: '
+        res.innerHTML = 'Contando: <br>'
 
         var i = Number(inicio.value)
         var f = Number(fim.value)
         var p = Number(passo.value)
 
-        for(var c = i; c <= f; c += p )
+        if (p <= 0)
         {
-            res.innerHTML += `${c}`
+            window.alert('Valor mínimo de passo será 1')
+            p = 1
         }
 
+        if (i < f)
+        {
+            for(var c = i; c <= f; c += p)
+            {
+                res.innerHTML += `${c}  `
+            }
+        }
+
+        else
+        {
+            for(var c = i; c >= f; c -= p)
+            {
+                res.innerHTML += `${c}  `
+            }
+        }
     }
 }
